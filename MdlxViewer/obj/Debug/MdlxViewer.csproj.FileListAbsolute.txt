@@ -1,0 +1,23 @@
+D:\MdlxViewer\MdlxViewer\MdlxViewer\obj\Debug\MdlxViewer.csprojAssemblyReference.cache
+D:\MdlxViewer\MdlxViewer\MdlxViewer\obj\Debug\MdlxViewer.csproj.CoreCompileInputs.cache
+D:\MdlxViewer\MdlxViewer\MdlxViewer\bin\DesktopGL\AnyCPU\Debug\MonoGame.Framework.dll.config
+D:\MdlxViewer\MdlxViewer\MdlxViewer\bin\DesktopGL\AnyCPU\Debug\x86\SDL2.dll
+D:\MdlxViewer\MdlxViewer\MdlxViewer\bin\DesktopGL\AnyCPU\Debug\x64\SDL2.dll
+D:\MdlxViewer\MdlxViewer\MdlxViewer\bin\DesktopGL\AnyCPU\Debug\x86\soft_oal.dll
+D:\MdlxViewer\MdlxViewer\MdlxViewer\bin\DesktopGL\AnyCPU\Debug\x64\soft_oal.dll
+D:\MdlxViewer\MdlxViewer\MdlxViewer\bin\DesktopGL\AnyCPU\Debug\x86\libSDL2-2.0.so.0
+D:\MdlxViewer\MdlxViewer\MdlxViewer\bin\DesktopGL\AnyCPU\Debug\x64\libSDL2-2.0.so.0
+D:\MdlxViewer\MdlxViewer\MdlxViewer\bin\DesktopGL\AnyCPU\Debug\x86\libopenal.so.1
+D:\MdlxViewer\MdlxViewer\MdlxViewer\bin\DesktopGL\AnyCPU\Debug\x64\libopenal.so.1
+D:\MdlxViewer\MdlxViewer\MdlxViewer\bin\DesktopGL\AnyCPU\Debug\libSDL2-2.0.0.dylib
+D:\MdlxViewer\MdlxViewer\MdlxViewer\bin\DesktopGL\AnyCPU\Debug\libopenal.1.dylib
+D:\MdlxViewer\MdlxViewer\MdlxViewer\bin\DesktopGL\AnyCPU\Debug\MdlxViewer.exe
+D:\MdlxViewer\MdlxViewer\MdlxViewer\bin\DesktopGL\AnyCPU\Debug\MdlxViewer.pdb
+D:\MdlxViewer\MdlxViewer\MdlxViewer\bin\DesktopGL\AnyCPU\Debug\BAR Editor.exe
+D:\MdlxViewer\MdlxViewer\MdlxViewer\bin\DesktopGL\AnyCPU\Debug\MonoGame.Framework.dll
+D:\MdlxViewer\MdlxViewer\MdlxViewer\bin\DesktopGL\AnyCPU\Debug\nQuant.dll
+D:\MdlxViewer\MdlxViewer\MdlxViewer\obj\Debug\MdlxViewer.csproj.CopyComplete
+D:\MdlxViewer\MdlxViewer\MdlxViewer\obj\Debug\MdlxViewer.exe
+D:\MdlxViewer\MdlxViewer\MdlxViewer\obj\Debug\MdlxViewer.pdb
+D:\MdlxViewer\MdlxViewer\MdlxViewer\bin\DesktopGL\AnyCPU\Debug\Content\boneTexture.png
+D:\MdlxViewer\MdlxViewer\MdlxViewer\bin\DesktopGL\AnyCPU\Debug\Content\sample.dae

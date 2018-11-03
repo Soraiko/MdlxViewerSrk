@@ -1,0 +1,189 @@
+
+            List<List<int[]>> NewTriangle = new List<List<int[]>>(0);
+
+            for (int meshIndex = 0; meshIndex < this.Triangle.Count; meshIndex++)
+            {
+                NewTriangle.Add(new List<int[]>(0));
+                while (this.Triangle[meshIndex].Count > 0)
+                {
+                    int[] first = Cloner(this.Triangle[meshIndex][0]);
+                    int[] second = Cloner(this.Triangle[meshIndex][1]);
+                    int[] third = Cloner(this.Triangle[meshIndex][2]);
+
+                    int vIndex1 = first[vertexTriInd[meshIndex]];
+                    int vIndex2 = second[vertexTriInd[meshIndex]];
+                    int vIndex3 = third[vertexTriInd[meshIndex]];
+
+                    int uvIndex1 = first[uvTriInd[meshIndex]];
+                    int uvIndex2 = second[uvTriInd[meshIndex]];
+                    int uvIndex3 = third[uvTriInd[meshIndex]];
+
+                    int colorIndex1 = -1;
+                    int colorIndex2 = -1;
+                    int colorIndex3 = -1;
+
+                    if (colorTriInd[meshIndex] > -1)
+                    {
+                        colorIndex1 = first[colorTriInd[meshIndex]];
+                        colorIndex2 = second[colorTriInd[meshIndex]];
+                        colorIndex3 = third[colorTriInd[meshIndex]];
+                    }
+
+                    /*if (NewTriangle[meshIndex].Count > 0 && NewTriangle[meshIndex].Count % 2 > 0)
+                    {
+                        int[] a = NewTriangle[meshIndex][NewTriangle[meshIndex].Count-1];
+                        int[] b = NewTriangle[meshIndex][NewTriangle[meshIndex].Count-2];
+                        int[] c = NewTriangle[meshIndex][NewTriangle[meshIndex].Count-3];
+                        NewTriangle[meshIndex][NewTriangle[meshIndex].Count - 1] = c;
+                        NewTriangle[meshIndex][NewTriangle[meshIndex].Count - 2] = b;
+                        NewTriangle[meshIndex][NewTriangle[meshIndex].Count - 3] = a;
+                    }*/
+
+                    for (int m = 0; m < 3; m++)
+                    {
+                        NewTriangle[meshIndex].Add(this.Triangle[meshIndex][0]);
+                        this.Triangle[meshIndex].RemoveAt(0);
+                    }
+
+
+                    for (int j = 0; j < this.Triangle[meshIndex].Count; j += 3)
+                    {
+                        for (int h = 0; h < 3; h++)
+                        {
+                            int[] first_ = Cloner(this.Triangle[meshIndex][j + ((0 + h) % 3)]);
+                            int[] second_ = Cloner(this.Triangle[meshIndex][j + ((1 + h) % 3)]);
+                            int[] third_ = Cloner(this.Triangle[meshIndex][j + ((2 + h) % 3)]);
+
+                            int vIndex1_ = first_[vertexTriInd[meshIndex]];
+                            int vIndex2_ = second_[vertexTriInd[meshIndex]];
+                            int vIndex3_ = third_[vertexTriInd[meshIndex]];
+
+                            int uvIndex1_ = first_[uvTriInd[meshIndex]];
+                            int uvIndex2_ = second_[uvTriInd[meshIndex]];
+                            int uvIndex3_ = third_[uvTriInd[meshIndex]];
+
+
+                            int colorIndex1_ = -1;
+                            int colorIndex2_ = -1;
+                            int colorIndex3_ = -1;
+
+                            if (colorTriInd[meshIndex] > -1)
+                            {
+                                colorIndex1_ = first_[colorTriInd[meshIndex]];
+                                colorIndex2_ = second_[colorTriInd[meshIndex]];
+                                colorIndex3_ = third_[colorTriInd[meshIndex]];
+                            }
+
+                            bool cond1A = vIndex2_ == vIndex3 && vIndex3_ == vIndex2;
+                            if (!cond1A)
+                            {
+                                if (Vector3.Distance(GetTriangleVertex(meshIndex, vIndex2_), GetTriangleVertex(meshIndex, vIndex3)) < 0.0001 &&
+                                    Vector3.Distance(GetTriangleVertex(meshIndex, vIndex3_), GetTriangleVertex(meshIndex, vIndex2)) < 0.0001)
+                                {
+                                    cond1A = true;
+                                }
+                            }
+
+
+                            bool cond1B = uvIndex2_ == uvIndex3 && uvIndex3_ == uvIndex2;
+                            if (!cond1B)
+                            {
+                                if (Vector2.Distance(GetTriangleUv(meshIndex, uvIndex2_), GetTriangleUv(meshIndex, uvIndex3)) < 0.00001 &&
+                                    Vector2.Distance(GetTriangleUv(meshIndex, uvIndex3_), GetTriangleUv(meshIndex, uvIndex2)) < 0.00001)
+                                {
+                                    cond1B = true;
+                                }
+                            }
+
+                            bool cond1C = colorIndex2_ == colorIndex3 && colorIndex3_ == colorIndex2;
+                            if (!cond1C)
+                            {
+                                var col1 = GetTriangleColor(meshIndex, colorIndex2_);
+                                var col2 = GetTriangleColor(meshIndex, colorIndex3);
+                                var col3 = GetTriangleColor(meshIndex, colorIndex3_);
+                                var col4 = GetTriangleColor(meshIndex, colorIndex2);
+
+                                if (col1.R == col2.R && col1.G == col2.G && col1.B == col2.B &&
+                                    col3.R == col4.R && col3.G == col4.G && col3.B == col4.B)
+                                {
+                                    cond1C = true;
+                                }
+                            }
+
+
+                            bool cond2A = vIndex1_ == vIndex2 && vIndex2_ == vIndex1;
+                            if (!cond2A)
+                            {
+                                if (Vector3.Distance(GetTriangleVertex(meshIndex, vIndex1_), GetTriangleVertex(meshIndex, vIndex2)) < 0.0001 &&
+                                    Vector3.Distance(GetTriangleVertex(meshIndex, vIndex2_), GetTriangleVertex(meshIndex, vIndex1)) < 0.0001)
+                                {
+                                    cond2A = true;
+                                }
+                            }
+
+
+                            bool cond2B = uvIndex1_ == uvIndex2 && uvIndex2_ == uvIndex1;
+                            if (!cond2B)
+                            {
+                                if (Vector2.Distance(GetTriangleUv(meshIndex, uvIndex1_), GetTriangleUv(meshIndex, uvIndex2)) < 0.00001 &&
+                                    Vector2.Distance(GetTriangleUv(meshIndex, uvIndex2_), GetTriangleUv(meshIndex, uvIndex1)) < 0.00001)
+                                {
+                                    cond2B = true;
+                                }
+                            }
+
+                            bool cond2C = colorIndex1_ == colorIndex2 && colorIndex2_ == colorIndex1;
+                            if (!cond2C)
+                            {
+                                var col1 = GetTriangleColor(meshIndex, colorIndex1_);
+                                var col2 = GetTriangleColor(meshIndex, colorIndex2);
+                                var col3 = GetTriangleColor(meshIndex, colorIndex2_);
+                                var col4 = GetTriangleColor(meshIndex, colorIndex1);
+
+                                if (col1.R == col2.R && col1.G == col2.G && col1.B == col2.B &&
+                                    col3.R == col4.R && col3.G == col4.G && col3.B == col4.B)
+                                {
+                                    cond2C = true;
+                                }
+                            }
+
+                            if ((cond1A &&
+                                cond1B &&
+                                cond1C) ||
+
+                                (cond2A &&
+                                cond2B &&
+                                cond2C))
+                            {
+                                NewTriangle[meshIndex].Add(first_);
+                                NewTriangle[meshIndex].Add(second_);
+                                NewTriangle[meshIndex].Add(third_);
+
+                                for (int m = 0; m < 3; m++)
+                                {
+                                    this.Triangle[meshIndex].RemoveAt(j);
+                                }
+
+                                j = 0;
+                                vIndex1 = vIndex1_;
+                                vIndex2 = vIndex2_;
+                                vIndex3 = vIndex3_;
+
+                                uvIndex1 = uvIndex1_;
+                                uvIndex2 = uvIndex2_;
+                                uvIndex3 = uvIndex3_;
+
+                                colorIndex1 = colorIndex1_;
+                                colorIndex2 = colorIndex2_;
+                                colorIndex3 = colorIndex3_;
+
+                                break;
+                            }
+
+                        }
+                    }
+                }
+            }
+
+
+            this.Triangle = NewTriangle;

@@ -1,0 +1,6 @@
+Enter		= save as DAE
+Left/right 	= change bone
+Shift 		= free rotate bone
+S		= enabled/disable smooth
+I		= Show/Hide bones indices
+T		= Show/Hide textures
